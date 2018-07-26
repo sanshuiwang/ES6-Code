@@ -15,6 +15,8 @@ import history from './router/history/history'
 
 import NormalizeCss from './components/NormalizeCss'
 
+import './ES/LetConst/01.js'
+
 /*Provider组件是让所有的组件可以访问到store。不用手动去传。也不用手动去监听*/
 ReactDom.render(
   <div>

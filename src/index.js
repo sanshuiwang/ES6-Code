@@ -15,6 +15,7 @@ import history from './router/history/history'
 
 import NormalizeCss from './components/NormalizeCss'
 
+//let const 学习时代码测试，可以直接运行，也可以放在浏览器console下边跑
 import './ES/LetConst/01.js'
 
 /*Provider组件是让所有的组件可以访问到store。不用手动去传。也不用手动去监听*/

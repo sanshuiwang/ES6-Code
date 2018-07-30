@@ -15,8 +15,14 @@ import history from './router/history/history'
 
 import NormalizeCss from './components/NormalizeCss'
 
-//let const 学习时代码测试，可以直接运行，也可以放在浏览器console下边跑
-import './ES/LetConst/01.js'
+//也可以放在浏览器console下边跑
+//let const 学习时代码测试，可以直接运行
+//import './ES/02LetConst/01.js'
+
+//解构赋值
+import './ES/03JieGouFuZhi/01.js'
+//import './ES/03JieGouFuZhi/02.js'
+
 
 /*Provider组件是让所有的组件可以访问到store。不用手动去传。也不用手动去监听*/
 ReactDom.render(

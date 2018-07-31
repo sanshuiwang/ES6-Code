@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 
 const commonConfig = require('./webpack.common.config.js');
-
+var babelpolyfill = require("babel-polyfill");
 const devConfig = {
   /*错误信息是不是提示的很详细,我们在srouce里面能看到我们写的代码，也能打断点调试哦~*/
   devtool: 'inline-source-map',

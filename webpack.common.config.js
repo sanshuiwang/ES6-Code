@@ -11,8 +11,8 @@ const commonConfig = {
       path.join(__dirname, 'src/index.js')
     ],
     //将 第三方依赖（node_modules中的） 单独打包
-    //vendor: ['react', 'react-router-dom', 'redux', 'react-dom', 'react-redux']
-    vendor: Object.keys(pkg.dependencies)
+    vendor: ['react', 'react-router-dom', 'redux', 'react-dom', 'react-redux']
+    //vendor: Object.keys(pkg.dependencies) //会造成babel-runtime can not resolve
   },
   output: {
     path: path.join(__dirname, './dist'),

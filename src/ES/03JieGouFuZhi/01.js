@@ -1,5 +1,5 @@
 //数组解构赋值
-
+import 'babel-polyfill';
 //数组中提取值，按照对应位置，对变量赋值。
 let [a,b,c] = [1,2,3]
 console.log('let [a,b,c] = [1,2,3] <br/> c')
@@ -69,19 +69,16 @@ console.log(x01);
 
 
 //Generator函数原生具有Iterator接口，所以能够解构
-// function* fibs(){
-//   let a = 0;
-//   let b = 1;
-//   let m = 0;
-//   while(true){
-//     console.log('m');
-//     console.log(m);
-//     yield a;
-//     console.log(m);
-//     [a,b] = [b, a+b]
-//     m++;
-//   }
-// }
-// let [first, second, third01, fourth, fifth, sixth] = fibs();
-// console.log('sixth');
-// console.log(sixth);
+function* fibs(){
+  let a = 0;
+  let b = 1;
+  let m = 0;
+  while(true){
+    yield a;
+    [a,b] = [b, a+b]
+    m++;
+  }
+}
+let [first, second, third01, fourth, fifth, sixth] = fibs();
+console.log('sixth');
+console.log(sixth);

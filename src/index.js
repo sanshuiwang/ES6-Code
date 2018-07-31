@@ -15,6 +15,7 @@ import history from './router/history/history'
 
 import NormalizeCss from './components/NormalizeCss'
 
+import 'babel-polyfill';
 //也可以放在浏览器console下边跑
 //let const 学习时代码测试，可以直接运行
 //import './ES/02LetConst/01.js'

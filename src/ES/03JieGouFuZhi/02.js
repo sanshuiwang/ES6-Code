@@ -49,12 +49,12 @@ console.log(arr01);
 //默认值
 var {x04 = 3} = {x04: undefined};
 console.log('var {x04 = 3} = {x04: undefined};');
-console.log(x04);
+console.log(x04); //3
 
 //属性x等于null，因为null与undefined不严格相等，所以是个有效的赋值，导致默认值3不会生效。
 var {x05 = 3} = {x05: null};
 console.log('var {x05 = 3} = {x05: null};');
-console.log(x05);
+console.log(x05); //null
 
 
 // 报错

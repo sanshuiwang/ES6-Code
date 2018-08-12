@@ -21,9 +21,12 @@ import 'babel-polyfill';
 //import './ES/02LetConst/01.js'
 
 //解构赋值
-import './ES/03JieGouFuZhi/01.js'
+//import './ES/03JieGouFuZhi/01.js'
 // import './ES/03JieGouFuZhi/02.js'
 // import './ES/03JieGouFuZhi/03.js'
+
+//字符串扩展
+import './ES/04ZiFuChuan/01.js'
 
 
 /*Provider组件是让所有的组件可以访问到store。不用手动去传。也不用手动去监听*/

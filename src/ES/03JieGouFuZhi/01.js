@@ -69,17 +69,17 @@ console.log(x01);
 
 
 //Generator函数原生具有Iterator接口，所以能够解构
-function* fibs(){
-  let a = 0;
-  let b = 1;
-  while(true){
-    console.log(100,a);
-    yield a;
-      console.log(200,a);
-    [a,b] = [b, a+b]
-      console.log(300,a);
-  }
-}
-let [first, second, third01, fourth, fifth, sixth] = fibs();
-console.log('sixth');
-console.log(sixth);
+// function* fibs(){
+//   let a = 0;
+//   let b = 1;
+//   while(true){
+//     console.log(100,a);
+//     yield a;
+//       console.log(200,a);
+//     [a,b] = [b, a+b]
+//       console.log(300,a);
+//   }
+// }
+// let [first, second, third01, fourth, fifth, sixth] = fibs();
+// console.log('sixth');
+// console.log(sixth);

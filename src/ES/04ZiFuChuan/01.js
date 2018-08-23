@@ -1,5 +1,5 @@
 console.log('es6花括号解析码点');
-//码点一般都是十六进制（0x0000-oxFFFF）
+//码点一般都是十六进制（0x0000-oxFFFF） 码点：32位UTF-16
 //花括号解析出现解决了什么？四个字节储存字符解析
 console.log(100, '\u{41}');
 
@@ -49,11 +49,13 @@ console.log(`I am ${name}, I will rename ${newName}.`);
 //模板字符串花括号中可以进行的操作[模板字符串的大括号内部，就是执行 JavaScript 代码]
 // 1.变量
 // 2.对象 toString()
+console.log(1000, `Hello, ${{"a": 2}}`); //"Hello, [object Object]"
+console.log(2000, {"a": 2}.toString()) //2000 "[object Object]"
 // 3.function 
-// 4.dom,携带map计算
+// 4.模板字符串嵌套（dom,携带map计算）
+// 5.以func声明去引用模板字符串本身
 
 //模板使用<%...%>
 
-
-
+alert`123`
 

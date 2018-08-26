@@ -21,7 +21,7 @@ import 'babel-polyfill';
 //import './ES/02LetConst/01.js'
 
 //解构赋值
-//import './ES/03JieGouFuZhi/01.js'
+// import './ES/03JieGouFuZhi/01.js'
 // import './ES/03JieGouFuZhi/02.js'
 // import './ES/03JieGouFuZhi/03.js'
 

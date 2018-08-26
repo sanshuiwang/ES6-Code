@@ -1,3 +1,5 @@
+import { func } from "prop-types";
+
 console.log('es6花括号解析码点');
 //码点一般都是十六进制（0x0000-oxFFFF） 码点：32位UTF-16
 //花括号解析出现解决了什么？四个字节储存字符解析
@@ -18,7 +20,7 @@ console.log('两个字节还是四个字节的字符验证：')
 console.log(200,is32Bit("𠮷"))
 console.log(300,is32Bit("a"))
 
-//
+//对字符串含有字符的判断
 let str = 'Hello World!'
 console.log('startsWith : ');
 console.log(str.startsWith('Hel'));
@@ -57,5 +59,100 @@ console.log(2000, {"a": 2}.toString()) //2000 "[object Object]"
 
 //模板使用<%...%>
 
+
+//标签模板
 alert`123`
+
+let a = 5;
+let b = 10;
+
+function tag(stringArr, ...values) {
+  console.log(40000, stringArr);
+  console.log(40001, values);
+}
+
+function tag01(stringArr, value1, value2){
+  console.log(41000, stringArr);
+  console.log(41001, value1);
+  console.log(41002, value2);
+  console.log(41003, stringArr.raw[0]);
+  
+}
+
+tag`Hello ${ a + b } world ${ a * b }`
+
+tag(['Hello ',' world ', ''], 15, 50)
+
+tag01`Hello ${ a + b } world ${ a * b }`
+
+//将各个参数按照原来位置拼合回去
+let total = 30;
+let msg = passthru`The total is ${total} (${total * 1.05} with tax)`
+let msg01 = passthru01`The total is ${total} (${total * 1.05} with tax)`
+function passthru(literals) {
+  
+  let result = ''
+  let i = 0
+  while (i < literals.length) {
+    
+    result += literals[i++]
+    if(i < arguments.length){
+      
+      result += arguments[i]
+    }
+  }
+  return result
+}
+
+console.log(42000, msg);
+
+//采用rest参数还原位置拼合
+function passthru01(literals, ...values) {
+  let output = ""
+  let index
+  for (index = 0; index < values.length; index++) {
+    output += literals[index] + values[index]
+  }
+  
+  output += literals[index]
+  return output
+}
+
+console.log(42001, msg01);
+
+//标签模板作用;
+//1.过滤html字符串
+//2.i18n国际化处理(暂时不做重点)
+
+//过滤字符串,防止用户恶意输入
+let sender = '<script>alert("abc")</script>'
+let message = SafeHTML`<p>${sender} has sent you a message.</p>`
+function SafeHTML(templateData) {
+  let s = templateData[0]
+  for(let i = 1; i < arguments.length; i++){
+    let arg = String(arguments[i])
+
+    s += arg.replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+
+    s += templateData[i]
+  }
+  return s
+}
+console.log(43000, message);
+
+//i18n
+
+
+//标签模板，传入数组参数具备raw属性,raw属性作用：这是为了方便取得转义之前的原始模板而设计的。
+console.log`123`
+tag02`First line\nSecond line`
+function tag02(strings) {
+  console.log(44000, strings);
+  console.log(44001, strings[0]); //换行符
+  console.log(44002, strings.raw); //不是换行符,是\\n
+  console.log(44003, strings.raw[0]);
+}
+
 

@@ -1,4 +1,3 @@
-import { func } from "prop-types";
 
 console.log('es6花括号解析码点');
 //码点一般都是十六进制（0x0000-oxFFFF） 码点：32位UTF-16
@@ -154,5 +153,37 @@ function tag02(strings) {
   console.log(44002, strings.raw); //不是换行符,是\\n
   console.log(44003, strings.raw[0]);
 }
+//限制：
+// function tag03(strs){
+//   debugger
+// }
+// tag03`\unicode and \u{55}` //js编译报错，实质是\unicode = undefind
+
+//String对象raw属性
+//String.raw方法，往往用来充当模板字符串的处理函数，返回一个斜杠都被转义（即斜杠前面再加一个斜杠）的字符串，对应于替换变量后的模板字符串。
+//作用：：
+//该属性会替换所有变量，对斜杠进行转义。
+console.log(50000, String.raw`Hi\n{2+3}!`);
+//转义过的会进行二次转义
+console.log(50001, String.raw`Hi\\n`);
+//作为正常的函数使用
+console.log(50002, String.raw({raw: 'test'}, 0, 1, 2, 3));
+console.log(500022, String.raw({ raw: ['t','e','s','t'] }, 0, 1, 2, 3));
+//raw实现代码
+String.raw01 = function (strings, ...values) {
+  let output = '';
+  let index;
+  for (index = 0; index < values.length; index++) {
+    output += strings.raw[index] + values[index];
+  }
+
+  output += strings.raw[index]
+  return output;
+}
+console.log(50003, String.raw01({ raw: 'test' }, 0, 1, 2));
+console.log(500033, String.raw01({ raw: ['t','e','s','t'] }, 0, 1, 2));
+
+
+
 
 

@@ -1,8 +1,13 @@
 
+console.log("\uD842\uDFB7");
+console.log("\u20BB7");
+console.log("\u{20BB7}");
+console.log("\u{20BB7}" === "\uD842\uDFB7");
 console.log('es6花括号解析码点');
-//码点一般都是十六进制（0x0000-oxFFFF） 码点：32位UTF-16
+//码点一般都是十六进制（0x0000-0xFFFF） 码点：32位UTF-16
 //花括号解析出现解决了什么？四个字节储存字符解析
 console.log(100, '\u{41}');
+
 
 //for of 循环得出每个字符的码点，此方法能够得到32位的UTF-16
 let s = '𠮷a';
@@ -25,7 +30,7 @@ console.log('startsWith : ');
 console.log(str.startsWith('Hel'));
 console.log('endsWith : ');
 console.log(str.endsWith('!'));
-console.log('includes : ');
+console.log('includes: ');
 console.log(str.includes('llo'));
 
 //字符串重复

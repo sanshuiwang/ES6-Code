@@ -56,11 +56,11 @@ console.log(`I am ${name}, I will rename ${newName}.`);
 // 1.变量
 // 2.对象 toString()
 console.log(1000, `Hello, ${{"a": 2}}`); //"Hello, [object Object]"
-console.log(2000, {"a": 2}.toString()) //2000 "[object Object]"
+console.log(2000, {"a": 2}.toString()); //2000 "[object Object]"
 // 3.function 
 // 4.模板字符串嵌套（dom,携带map计算）
 // 5.以func声明去引用模板字符串本身
-
+console.log(33333333, '`Hello !`')
 //模板使用<%...%>
 
 
@@ -80,7 +80,7 @@ function tag01(stringArr, value1, value2){
   console.log(41001, value1);
   console.log(41002, value2);
   console.log(41003, stringArr.raw[0]);
-  
+
 }
 
 tag`Hello ${ a + b } world ${ a * b }`

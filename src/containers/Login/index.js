@@ -55,7 +55,9 @@ class Login extends Component {
    super(props);
    this.state = {
      amount: '',
-     password: ''
+     password: '',
+     testAync: 'init',
+     count: 0
    }
   }
 
@@ -76,6 +78,52 @@ class Login extends Component {
     this.props.loginSetAmount({amount: 'sanshuiwang', token: 'sanshuiwang-123'})
   }
 
+  setStateAsync = (nextState) => {
+    return new Promise((resolve,reject) => {
+      this.setState(nextState,resolve)
+    })
+  }
+
+  async componentDidMount(){
+    // this.setState({
+    //   testAync: 'onece-update',
+    //   count: this.state.count + 1
+    // },() => {
+    //   //回掉是在setState后进行render完以后执行的
+    //   console.log(100, 'callback-once-update')
+    //   //可获取到更新后的state
+    //   // this.setState({
+    //   //   count: this.state.count + 1
+    //   // }) //count结果为2
+    // })
+
+    // this.setState({
+    //   count: this.state.count + 1
+    // })
+
+    // this.setState({
+    //   count: this.state.count + 1
+    // })
+    // //count一直为1
+
+    // count结果为4
+    // await this.setStateAsync({count: this.state.count + 1})
+    // await this.setStateAsync({count: this.state.count + 1})
+    // await this.setStateAsync({count: this.state.count + 1})
+    // await this.setStateAsync({count: this.state.count + 1})
+
+    //结果为2
+    this.setState((state, props) => {
+      return {count: state.count + 1};
+    });
+    this.setState((state, props) => {  
+      return {count: state.count + 1};
+    });
+
+  }
+
+  
+
   componentWillUpdate(nextProps, nextState){
     if(nextProps.loginAmount !== this.props.loginAmount && nextProps.loginAmount.token){
       history.push('/home');
@@ -83,10 +131,13 @@ class Login extends Component {
   }
   render() {
     const { classes,showPassword } = this.props;
+    console.log(200, 'Login - render()');
+    
     return (<div>
         <Helmet>
           <title>登录</title>
         </Helmet>
+        <h1>{this.state.count}</h1>
         <div className={classes.formWrapper}>
           <FormControl className={classes.formControl}>
            <InputLabel htmlFor="amount-user">用户名</InputLabel>

@@ -29,7 +29,7 @@ import 'babel-polyfill';
 // import './ES/04ZiFuChuan/01.js'
 
 //正则
-import './ES/05regexp/01.js';
+// import './ES/05regexp/01.js';
 
 
 /*Provider组件是让所有的组件可以访问到store。不用手动去传。也不用手动去监听*/

@@ -63,5 +63,9 @@ const RE_DOLLAR_PREFIX = /(?<=\$)foo/g;
 console.log('$foo %foo foo'.replace(RE_DOLLAR_PREFIX, 'bar'));
 
 console.log('后行断言-组匹配：：（表示没搞懂！！！）');
+console.log('token---y');
+const TOKEN_Y = /\s*(\+|[0-9]+)\s*/y;
+
+
 
 
